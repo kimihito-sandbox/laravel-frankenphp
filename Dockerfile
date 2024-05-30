@@ -15,7 +15,7 @@ RUN npm run build
 
 FROM php:8.3
 
-RUN apt-get update -qq && apt-get install -y git libicu-dev zlib1g-dev libzip-dev
+RUN apt-get update -qq && apt-get install -y git libicu-dev zlib1g-dev libzip-dev libpq-dev
 
 RUN docker-php-ext-install intl pgsql pdo_pgsql zip bcmath
 RUN docker-php-ext-configure pcntl --enable-pcntl && docker-php-ext-install pcntl
