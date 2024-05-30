@@ -13,7 +13,7 @@ COPY resources/css ./resources/css
 RUN npm run build
 
 
-FROM dunglas/frankenphp
+FROM php:8.3
 
 RUN apt-get update -qq && apt-get install -y git libicu-dev zlib1g-dev libzip-dev
 
@@ -30,5 +30,7 @@ COPY . .
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer install
+
+RUN php artisan octane:install --server=frankenphp
 
 ENTRYPOINT [ "php", "artisan", "octane:start", "--host", "0.0.0.0"]
