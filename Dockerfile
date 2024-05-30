@@ -18,6 +18,7 @@ FROM php:8.3
 RUN apt-get update -qq && apt-get install -y git libicu-dev zlib1g-dev libzip-dev
 
 RUN docker-php-ext-install intl pdo zip bcmath
+RUN docker-php-ext-configure pcntl --enable-pcntl && docker-php-ext-install pcntl
 
 WORKDIR /app
 
