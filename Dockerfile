@@ -17,6 +17,8 @@ FROM dunglas/frankenphp
 
 RUN apt-get update -qq && apt-get install -y git
 
+RUN docker-php-ext-install intl pdo zip bcmath
+
 WORKDIR /app
 
 # Copy Frontend build
