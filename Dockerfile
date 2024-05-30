@@ -23,9 +23,8 @@ COPY --from=frontend /app/public/build/ ./public/build/
 
 COPY . .
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
-
-COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer install
 
 ENTRYPOINT [ "php", "artisan", "octane:start", "--host", "0.0.0.0"]
