@@ -15,7 +15,7 @@ RUN npm run build
 
 FROM dunglas/frankenphp
 
-RUN apt-get update -qq && apt-get install -y git libicu-dev
+RUN apt-get update -qq && apt-get install -y git libicu-dev zlib1g-dev libzip-dev
 
 RUN docker-php-ext-install intl pdo zip bcmath
 
