@@ -33,4 +33,4 @@ RUN composer install
 
 RUN php artisan octane:install --server=frankenphp
 
-ENTRYPOINT [ "php", "artisan", "octane:start", "--host", "0.0.0.0"]
+ENTRYPOINT [ "php", "artisan", "octane:start", "--host", "0.0.0.0" "--port", "$PORT"]
