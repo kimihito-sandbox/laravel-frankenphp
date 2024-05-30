@@ -15,6 +15,8 @@ RUN npm run build
 
 FROM dunglas/frankenphp
 
+RUN apt-get update -qq && apt-get install -y git
+
 WORKDIR /app
 
 # Copy Frontend build
